@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Conversor de Temperatura</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="home.html">Página Inicial</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  </nav>
+    <h2>Conversor de Temperatura</h2>
+    <label for="temperatura">Digite a temperatura:</label>
+    <input type="number" id="temperatura" />
+    <label for="unidade">Escolha a unidade:</label>
+    <select id="unidade">
+      <option value="celsius">Celsius</option>
+      <option value="fahrenheit">Fahrenheit</option>
+    </select>
+    <button onclick="converterTemperatura()">Converter</button>
+    <p id="resultado"></p>
+    <script>
+      function converterTemperatura() {
+        let temperatura = parseFloat(
+          document.getElementById("temperatura").value
+        );
+        let unidade = document.getElementById("unidade").value;
+        let resultadoElement = document.getElementById("resultado");
+        if (isNaN(temperatura)) {
+          resultadoElement.textContent =
+            "Por favor, digite uma temperatura válida.";
+          return;
+        }
+        let resultado;
+        if (unidade === "celsius") {
+          resultado = (temperatura * 9) / 5 + 32;
+          resultadoElement.textContent = `${temperatura} Celsius é igual a ${resultado.toFixed(
+            2
+          )} Fahrenheit.`;
+        } else {
+          resultado = ((temperatura - 32) * 5) / 9;
+          resultadoElement.textContent = `${temperatura} Fahrenheit é igual a ${resultado.toFixed(
+            2
+          )} Celsius.`;
+        }
+      }
+    </script>
+  </body>
+</html>

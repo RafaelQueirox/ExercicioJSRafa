@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Calculadora de Venda</title>
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="home.html">Página Inicial</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  </nav>
+    <h2>Calculadora de Venda</h2>
+    <label for="produto1">Produto 1:</label>
+    <input type="text" id="produto1" placeholder="Nome do produto" />
+    <input type="number" id="valor1" placeholder="Valor unitário" />
+    <input type="number" id="quantidade1" placeholder="Quantidade vendida" />
+    <label for="produto2">Produto 2:</label>
+    <input type="text" id="produto2" placeholder="Nome do produto" />
+    <input type="number" id="valor2" placeholder="Valor unitário" />
+    <input type="number" id="quantidade2" placeholder="Quantidade vendida" />
+    <label for="produto3">Produto 3:</label>
+    <input type="text" id="produto3" placeholder="Nome do produto" />
+    <input type="number" id="valor3" placeholder="Valor unitário" />
+    <input type="number" id="quantidade3" placeholder="Quantidade vendida" />
+    <button onclick="calcularTotal()">Calcular Total</button>
+    <p id="resultado"></p>
+    <script>
+      function calcularTotal() {
+        let valor1 = parseFloat(document.getElementById("valor1").value);
+        let quantidade1 = parseInt(
+          document.getElementById("quantidade1").value
+        );
+        let valor2 = parseFloat(document.getElementById("valor2").value);
+        let quantidade2 = parseInt(
+          document.getElementById("quantidade2").value
+        );
+        let valor3 = parseFloat(document.getElementById("valor3").value);
+        let quantidade3 = parseInt(
+          document.getElementById("quantidade3").value
+        );
+        if (
+          isNaN(valor1) ||
+          isNaN(quantidade1) ||
+          isNaN(valor2) ||
+          isNaN(quantidade2) ||
+          isNaN(valor3) ||
+          isNaN(quantidade3)
+        ) {
+          document.getElementById("resultado").textContent =
+            "Por favor, preencha todos os campos corretamente.";
+          return;
+        }
+        let total =
+          valor1 * quantidade1 + valor2 * quantidade2 + valor3 * quantidade3;
+        document.getElementById(
+          "resultado"
+        ).textContent = `O valor total da venda é R$ ${total.toFixed(2)}.`;
+      }
+    </script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  </body>
+</html>

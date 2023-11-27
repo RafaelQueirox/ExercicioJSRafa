@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Manipulação de Vetor</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="home.html">Página Inicial</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <h2>Manipulação de Vetor</h2>
+
+    <label for="numInput">Quantidade de valores (N):</label>
+
+    <input type="number" id="numInput" placeholder="Insira N">
+
+    <button onclick="solicitarValores()">Inserir Valores</button>
+
+    <button onclick="mostrarValores()">Mostrar Todos</button>
+
+    <button onclick="mostrarMaior()">Maior Valor</button>
+
+    <button onclick="mostrarMenor()">Menor Valor</button>
+
+    <p id="resultado"></p>
+
+    <script>
+
+        let vetor = [];
+
+        function solicitarValores() {
+
+            let numInput = parseInt(document.getElementById("numInput").value);
+
+            vetor = [];
+
+            for (let i = 0; i < numInput; i++) {
+
+                let valor = prompt(`Insira o valor ${i + 1}:`);
+
+                vetor.push(parseFloat(valor));
+
+            }
+
+        }
+
+        function mostrarValores() {
+
+            document.getElementById("resultado").textContent = `Valores inseridos: ${vetor.join(', ')}`;
+
+        }
+
+        function mostrarMaior() {
+
+            if (vetor.length === 0) {
+
+                document.getElementById("resultado").textContent = "Nenhum valor inserido ainda.";
+
+                return;
+
+            }
+
+            let maior = Math.max(...vetor);
+
+            document.getElementById("resultado").textContent = `Maior valor: ${maior}`;
+
+        }
+
+        function mostrarMenor() {
+
+            if (vetor.length === 0) {
+
+                document.getElementById("resultado").textContent = "Nenhum valor inserido ainda.";
+
+                return;
+
+            }
+
+            let menor = Math.min(...vetor);
+
+            document.getElementById("resultado").textContent = `Menor valor: ${menor}`;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

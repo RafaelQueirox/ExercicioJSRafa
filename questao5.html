@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Calculadora de Custo para Assentar Piso</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="home.html">Página Inicial</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  </nav>
+    <h2>Calculadora de Custo para Assentar Piso</h2>
+    <label for="comprimento">Comprimento do cômodo (m):</label>
+    <input type="number" id="comprimento" placeholder="Comprimento em metros" />
+    <label for="largura">Largura do cômodo (m):</label>
+    <input type="number" id="largura" placeholder="Largura em metros" />
+    <button onclick="calcularCusto()">Calcular Custo</button>
+    <p id="resultado"></p>
+    <script>
+      function calcularCusto() {
+        let comprimento = parseFloat(
+          document.getElementById("comprimento").value
+        );
+        let largura = parseFloat(document.getElementById("largura").value);
+        if (isNaN(comprimento) || isNaN(largura)) {
+          document.getElementById("resultado").textContent =
+            "Por favor, preencha todos os campos corretamente.";
+          return;
+        }
+        const precoPorMetroQuadrado = 36.0;
+        const areaCcomodo = comprimento * largura;
+        const custoTotal = precoPorMetroQuadrado * areaCcomodo;
+        document.getElementById(
+          "resultado"
+        ).textContent = `O custo total para assentar o piso é R$ ${custoTotal.toFixed(
+          2
+        )}.`;
+      }
+    </script>
+  </body>
+</html>
